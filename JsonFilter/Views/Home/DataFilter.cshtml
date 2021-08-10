@@ -1,0 +1,65 @@
+﻿@model JsonFilter.Models.ResultModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Json info page</title>
+</head>
+<body>
+    <p></p>
+    <p>Find out which of the following sold the most between any years<p>
+        @using (Html.BeginForm("DataFilter", "Home", FormMethod.Post))
+        {
+        <p>To find out sales amounts</p>
+        <p>Please select model, colour or manufacturer</p>
+        <p>@Html.RadioButtonFor(s => s.strResult, "model") Model</p>
+        <p>@Html.RadioButtonFor(s => s.strResult, "manufacturer") Manufacturer</p>
+        <p>@Html.RadioButtonFor(s => s.strResult, "colour") Colour</p>
+        <p>Enter the first year</p>
+        @Html.TextBoxFor(s => s.intYearOne, "0")
+        <br>
+        <p>Enter the second year</p>
+        @Html.TextBoxFor(s => s.intYearTwo, "0")
+        <br>
+        <br>
+        <p>
+            <h1 style="color:red">
+                @ViewBag.MessageEror
+            </h1>
+        </p>
+        <p>
+            <input type="submit" value="Generate report" />
+        </p>
+        @if (ViewBag.Results != null)
+        {
+            @foreach (var item in ViewBag.Results)
+            {
+                <li>
+                    @item
+                </li>
+
+            }
+        }
+
+
+
+    }
+        @using (Html.BeginForm("DataFilter", "Home", FormMethod.Post))
+        {
+            <p>This shows the current selected above most common colour, manufacturer or model</p>
+            @if (ViewBag.Comn != null)
+            {
+                <p>@ViewBag.Comn</p>
+            }
+            <p>This displays the avarage sales for current selected years across all items</p>
+            @if (ViewBag.Avarg != null)
+            {
+                <p>@ViewBag.Avarg</p>
+            }
+        }
+
+    </body>
+</html>
+

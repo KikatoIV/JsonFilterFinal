@@ -1,0 +1,37 @@
+﻿@model List<JsonFilter.Models.CarModel>
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+
+    <body>
+        <h1>View All Data</h1>
+
+        @foreach (var item in Model)
+        {
+            <p>
+                ID: @item.id<br />
+                Model: @item.model<br />
+                Colour: @item.colour<br />
+                Manufacturer: @item.manufacturer<br />
+            </p>
+            <p>
+                Sales History:<br />
+                @foreach (var salesHistory in item.salesHistory)
+                {
+                <p>
+                    Year:  @salesHistory.year
+                    <br />
+                    Vehicles Sales: @salesHistory.vehiclesSold
+                    <br />
+                </p>
+                }
+            </p>
+            }
+    </body>
+</html>
