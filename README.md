@@ -1,4 +1,5 @@
 # JsonFilterFinal
+#By Ioannis Stamatiou
 
 This is my first attempt at a MCV pattern, it was fully made on Visual Studio, learnt alot, i am almost happy with the
 outcome. This was done in a TDD style, with constant testing and minimum working code, where possible, and with spare time improving and
